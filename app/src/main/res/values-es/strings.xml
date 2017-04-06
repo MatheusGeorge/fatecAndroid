@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProjetoP1</string>
+    <string name="answer">Responde:</string>
+    <string name="capital">Soy la capital de</string>
+    <string name="takePic">Tomar la Foto</string>
+    <string name="changeName">Cambiar Nombre</string>
+    <string name="start">Comienzo</string>
+    <string name="welcome">"Bienvenido, "</string>
+    <string name="alemanhaR">Berlín</string>
+
+    //Respostas
+    <string name="argentinaR">Buenos Aires</string>
+    <string name="austriaR">Viena</string>
+    <string name="brasilR">Brasilia</string>
+    <string name="canadaR">Ottawa</string>
+    <string name="chileR">Santiago</string>
+    <string name="chinaR">Pekín</string>
+    <string name="colombiaR">Bogota</string>
+    <string name="coreiaSulR">Seúl</string>
+    <string name="egitoR">El Cairo</string>
+    <string name="emiradosR">Anu Dhabi</string>
+    <string name="equadorR">Quito</string>
+    <string name="euaR">Washington</string>
+    <string name="filipinasR">Manila</string>
+    <string name="francaR">París</string>
+    <string name="greciaR">Atenas</string>
+    <string name="holandaR">Ámsterdam</string>
+    <string name="inglaterraR">Londres</string>
+    <string name="irlandaR">Dublín</string>
+    <string name="israelR">Jerusalém</string>
+    <string name="italiaR">Roma</string>
+    <string name="japaoR">Tokio</string>
+    <string name="malasiaR">Kuala Lumpur</string>
+    <string name="peruR">Lima</string>
+    <string name="portugalR">Lisboa</string>
+    <string name="russiaR">Moscú</string>
+    <string name="tailandiaR">Bangkok</string>
+    <string name="taiwanR">Taipei</string>
+    <string name="ucraniaR">Kiev</string>
+    <string name="venezuelaR">Caracas</string>
+
+    //Perguntas
+    <string name="alemanhaP">Alemania</string>
+    <string name="argentinaP">Argentina</string>
+    <string name="austriaP">Austria</string>
+    <string name="brasilP">Brasil</string>
+    <string name="canadaP">Canadá</string>
+    <string name="chileP">Chile</string>
+    <string name="chinaP">China</string>
+    <string name="colombiaP">Colombia</string>
+    <string name="coreiaSulP">Corea del Sur</string>
+    <string name="egitoP">Egipto</string>
+    <string name="emiradosP">los Emiratos Árabes</string>
+    <string name="equadorP">Ecuador</string>
+    <string name="euaP">los EUA</string>
+    <string name="filipinasP">Filipinas</string>
+    <string name="francaP">Francia</string>
+    <string name="greciaP">Grecia</string>
+    <string name="holandaP">los Paises Bajos</string>
+    <string name="inglaterraP">Inglaterra</string>
+    <string name="irlandaP">Irlanda</string>
+    <string name="israelP">Israel</string>
+    <string name="italiaP">Italia</string>
+    <string name="japaoP">Japón</string>
+    <string name="malasiaP">Malasia</string>
+    <string name="peruP">Perú</string>
+    <string name="portugalP">Portugal</string>
+    <string name="russiaP">Rusia</string>
+    <string name="tailandiaP">Tailandia</string>
+    <string name="taiwanP">Taiwán</string>
+    <string name="ucraniaP">Ucrania</string>
+    <string name="venezuelaP">Venezuela</string>
+    <string name="inputDialog">Introduzca su nombre</string>
+    <string name="tentativa">Reintentos</string>
+    <string name="pontuacao">Pontuación</string>
+    <string name="ganhouP">Ganado 2 puntos</string>
+    <string name="perdeuP">Perdido 1 punto</string>
+    <string name="iniciar">2 oportunidades a todas las preguntas</string>
+    <string name="tituloBau">Clic para ganar puntos</string>
+    <string name="pontos">Puntos:</string>
+    <string name="acertos">Éxitos:</string>
+
+
+</resources>
