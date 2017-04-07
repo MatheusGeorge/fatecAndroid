@@ -60,11 +60,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private TextView numeroPontuacaoTextView;
     private EditText respostaEditText;
     private ImageView perfilImageView;
-    //private String[] perguntas = new String[]{"francaP", "brasilP", "inglaterraP"};
-    //private String[] respostas = new String[]{"francaR", "brasilR", "inglaterraR"};
-    //private double[] lat = new double[]{48.856614, -15.794157, 51.507351};
-    //private double[] lng = new double[]{2.352222, -47.882529, -0.127758};
-    private String[] perguntas = new String[]{"francaP", "brasilP", "inglaterraP", "coreiaSulP", "euaP", "argentinaP", "egitoP", "alemanhaP", "italiaP", "portugalP",
+    private String[] perguntas = new String[]{"francaP", "brasilP", "inglaterraP"};
+    private String[] respostas = new String[]{"francaR", "brasilR", "inglaterraR"};
+    private double[] lat = new double[]{48.856614, -15.794157, 51.507351};
+    private double[] lng = new double[]{2.352222, -47.882529, -0.127758};
+    /*private String[] perguntas = new String[]{"francaP", "brasilP", "inglaterraP", "coreiaSulP", "euaP", "argentinaP", "egitoP", "alemanhaP", "italiaP", "portugalP",
             "russiaP", "irlandaP", "malasiaP", "chinaP", "venezuelaP", "colombiaP", "peruP", "holandaP", "greciaP", "filipinasP", "canadaP", "equadorP", "chileP", "japaoP", "austriaP",
             "ucraniaP", "tailandiaP", "taiwanP", "emiradosP", "israelP"};
 
@@ -81,7 +81,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private double[] lng = new double[]{2.352222, -47.882529, -0.127758, 126.977969, -77.036871, -58.381559, 31.235712, 13.404954, 12.496366, -9.139337, 55.755826, -6.260310,
             101.686855, 116.407395, -66.903606, -74.072092, -77.042793, 4.895168, 23.727539, 120.984219, -75.697193, -78.467838, -70.669265, 139.691706, 16.373819, 30.523400,
-            100.501765, 121.565418, 54.377344, 35.213710};
+            100.501765, 121.565418, 54.377344, 35.213710};*/
 
     private List<Integer> vInicial = new ArrayList<>();
     private int indicePergunta = 0;
@@ -138,23 +138,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 okButton.setEnabled(true);
                 respostaEditText.setEnabled(true);
                 contG++;
-                if (indicePergunta != 29) {
+                if (indicePergunta != 2) {
                     indicePergunta++;
                     gerarPergunta();
                 }
-                if (contG > 29) {
-                    checkin(findViewById(R.id.map));
-                    iniciarButton.setEnabled(true);
-                    respostaEditText.setEnabled(false);
-                    okButton.setEnabled(false);
-                    tentativas = 0;
-                    numeroTextView.setText("");
-                    pontuacao = 0;
-                    numeroPontuacaoTextView.setText("");
-                    paisTextView.setText("");
-                    return true;
-                }
-                return false;
+                return true;
             }
 
         });
@@ -293,12 +281,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     };
 
     private void embaralharVetor() {
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 3; i++) {
             vInicial.add(i);
         }
         Collections.shuffle(vInicial);
 
     }
+
 
     private void gerarPergunta() {
         int resId = getResources().getIdentifier(perguntas[vInicial.get(indicePergunta)], "string", getPackageName());
@@ -348,7 +337,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 numeroTextView.setText(String.valueOf(tentativas));
                 Toast.makeText(getBaseContext(), getString(R.string.perdeuP), Toast.LENGTH_LONG).show();
             } else {
-                if (indicePergunta != 29) {
+                if (indicePergunta != 2) {
                     indicePergunta++;
                     gerarPergunta();
                 }
