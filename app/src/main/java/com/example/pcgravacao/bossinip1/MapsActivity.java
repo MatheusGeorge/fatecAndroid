@@ -16,6 +16,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -89,7 +90,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private int pontuacao = 0;
     private int contResposta = 0;
     private int contG = 0;
-    private static final int REQUEST_CAMERA = 1;
+    private static final int REQUEST_CAMERA = 2000;
     private static final int REQUEST_GPS = 1000;
     private Context c = this;
 
@@ -142,6 +143,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     indicePergunta++;
                     gerarPergunta();
                 }
+                terminarJogo();
                 return true;
             }
 
@@ -213,6 +215,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 }
                 break;
+            case REQUEST_CAMERA:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        dispatchTakePictureIntent();
+                    }
+                }
+                break;
         }
     }
 
@@ -242,7 +251,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final View.OnClickListener listenerFoto = new View.OnClickListener() {
         @Override
         public void onClick(View V) {
-            dispatchTakePictureIntent();
+            checkCameraPermission();
         }
     };
 
@@ -253,6 +262,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             fotoPerfil = (Bitmap) extras.get("data");
             perfilImageView.setImageBitmap(fotoPerfil);
             perfilImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        }
+    }
+
+    private void checkCameraPermission() {
+        if (ContextCompat.checkSelfPermission(c, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+                Toast.makeText(c, "Precisamos da sua câmera", Toast.LENGTH_SHORT).show();
+            }
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA);
+        } else {
+            dispatchTakePictureIntent();
         }
     }
 
@@ -286,6 +306,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         Collections.shuffle(vInicial);
 
+    }
+
+    private void terminarJogo() {
+        if (contG > 2) {
+            checkin(findViewById(R.id.map));
+            tentativas = 2;
+            numeroTextView.setText("");
+            pontuacao = 0;
+            numeroPontuacaoTextView.setText("");
+            paisTextView.setText("");
+            iniciarButton.setEnabled(true);
+            respostaEditText.setEnabled(false);
+            okButton.setEnabled(false);
+            contG = 0;
+            indicePergunta = 0;
+
+        }
     }
 
 
@@ -347,6 +384,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 pontuacao--;
                 numeroPontuacaoTextView.setText(String.valueOf(pontuacao));
                 Toast.makeText(getBaseContext(), getString(R.string.perdeuP), Toast.LENGTH_LONG).show();
+                terminarJogo();
             }
         }
     };
