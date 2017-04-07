@@ -16,6 +16,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -89,7 +90,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private int pontuacao = 0;
     private int contResposta = 0;
     private int contG = 0;
-    private static final int REQUEST_CAMERA = 1;
+    private static final int REQUEST_CAMERA = 2000;
     private static final int REQUEST_GPS = 1000;
     private Context c = this;
 
@@ -225,6 +226,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 }
                 break;
+            case REQUEST_CAMERA:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        dispatchTakePictureIntent();
+                    }
+                }
+                break;
         }
     }
 
@@ -254,7 +262,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final View.OnClickListener listenerFoto = new View.OnClickListener() {
         @Override
         public void onClick(View V) {
-            dispatchTakePictureIntent();
+            checkCameraPermission();
         }
     };
 
@@ -265,6 +273,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             fotoPerfil = (Bitmap) extras.get("data");
             perfilImageView.setImageBitmap(fotoPerfil);
             perfilImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        }
+    }
+
+    private void checkCameraPermission() {
+        if (ContextCompat.checkSelfPermission(c, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+                Toast.makeText(c, "Precisamos da sua câmera", Toast.LENGTH_SHORT).show();
+            }
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA);
+        } else {
+            dispatchTakePictureIntent();
         }
     }
 
