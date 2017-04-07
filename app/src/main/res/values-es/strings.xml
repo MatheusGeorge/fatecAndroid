@@ -8,6 +8,15 @@
     <string name="start">Comienzo</string>
     <string name="welcome">"Bienvenido, "</string>
     <string name="alemanhaR">Berlín</string>
+    <string name="inputDialog">Introduzca su nombre</string>
+    <string name="tentativa">Reintentos</string>
+    <string name="pontuacao">Pontuación</string>
+    <string name="ganhouP">Ganado 2 puntos</string>
+    <string name="perdeuP">Perdido 1 punto</string>
+    <string name="iniciar">2 oportunidades a todas las preguntas</string>
+    <string name="tituloBau">Clic para ganar puntos</string>
+    <string name="pontos">Puntos:</string>
+    <string name="acertos">Éxitos:</string>
 
     //Respostas
     <string name="argentinaR">Buenos Aires</string>
@@ -71,15 +80,7 @@
     <string name="taiwanP">Taiwán</string>
     <string name="ucraniaP">Ucrania</string>
     <string name="venezuelaP">Venezuela</string>
-    <string name="inputDialog">Introduzca su nombre</string>
-    <string name="tentativa">Reintentos</string>
-    <string name="pontuacao">Pontuación</string>
-    <string name="ganhouP">Ganado 2 puntos</string>
-    <string name="perdeuP">Perdido 1 punto</string>
-    <string name="iniciar">2 oportunidades a todas las preguntas</string>
-    <string name="tituloBau">Clic para ganar puntos</string>
-    <string name="pontos">Puntos:</string>
-    <string name="acertos">Éxitos:</string>
+    <string name="toastAviso">Tomar una foto antes de empezar</string>
 
 
 </resources>

@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BossiniP1.iml" filepath="$PROJECT_DIR$/BossiniP1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fatecAndroid.iml" filepath="$PROJECT_DIR$/fatecAndroid.iml" />
     </modules>
   </component>
 </project>

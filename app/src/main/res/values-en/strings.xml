@@ -7,6 +7,15 @@
     <string name="changeName">Change Name</string>
     <string name="takePic">Take Picture</string>
     <string name="start">Start</string>
+    <string name="inputDialog">Enter your name</string>
+    <string name="tentativa">Attempts</string>
+    <string name="pontuacao">Score:</string>
+    <string name="ganhouP">Won 2 points</string>
+    <string name="perdeuP">Lost 1 point</string>
+    <string name="iniciar">2 trys for each question</string>
+    <string name="tituloBau">Click to win points</string>
+    <string name="pontos">Points:</string>
+    <string name="acertos">Hits:</string>
 
     //Respostas
     <string name="alemanhaR">Berlin</string>
@@ -71,13 +80,6 @@
     <string name="taiwanP">Taiwan</string>
     <string name="ucraniaP">Ukraine</string>
     <string name="venezuelaP">Venezuela</string>
-    <string name="inputDialog">Enter your name</string>
-    <string name="tentativa">Attempts</string>
-    <string name="pontuacao">Score:</string>
-    <string name="ganhouP">Won 2 points</string>
-    <string name="perdeuP">Lost 1 point</string>
-    <string name="iniciar">2 trys for each question</string>
-    <string name="tituloBau">Click to win points</string>
-    <string name="pontos">Points:</string>
-    <string name="acertos">Hits:</string>
+    <string name="toastAviso">Take a picture before start</string>
+
 </resources>

@@ -8,6 +8,14 @@
     <string name="start">Iniciar</string>
     <string name="capital">Sou a capital</string>
     <string name="inputDialog">Digite seu nome</string>
+    <string name="tentativa">Tentativas:</string>
+    <string name="pontuacao">Pontuação:</string>
+    <string name="ganhouP">Ganhou 2 pontos</string>
+    <string name="perdeuP">Perdeu 1 ponto</string>
+    <string name="iniciar">2 chances para cada pergunta</string>
+    <string name="tituloBau">Clique para ganhar os pontos</string>
+    <string name="pontos">Pontos:</string>
+    <string name="acertos">Acertos:</string>
 
     //Respostas
     <string name="francaR">Paris</string>
@@ -72,13 +80,6 @@
     <string name="taiwanP">do Taiwan</string>
     <string name="emiradosP">dos Emirados Árabes</string>
     <string name="israelP">do Israel</string>
-    <string name="tentativa">Tentativas:</string>
-    <string name="pontuacao">Pontuação:</string>
-    <string name="ganhouP">Ganhou 2 pontos</string>
-    <string name="perdeuP">Perdeu 1 ponto</string>
-    <string name="iniciar">2 chances para cada pergunta</string>
-    <string name="tituloBau">Clique para ganhar os pontos</string>
-    <string name="pontos">Pontos:</string>
-    <string name="acertos">Acertos:</string>
+    <string name="toastAviso">Tire uma foto antes de iniciar</string>
 
 </resources>

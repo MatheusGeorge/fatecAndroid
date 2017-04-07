@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -33,6 +34,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -58,11 +60,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private TextView numeroPontuacaoTextView;
     private EditText respostaEditText;
     private ImageView perfilImageView;
-    private String[] perguntas = new String[]{"francaP", "brasilP", "inglaterraP"};
-    private String[] respostas = new String[]{"francaR", "brasilR", "inglaterraR"};
-    private double[] lat = new double[]{48.856614, -15.794157, 51.507351};
-    private double[] lng = new double[]{2.352222, -47.882529, -0.127758};
-    /*private String[] perguntas = new String[]{"francaP", "brasilP", "inglaterraP", "coreiaSulP", "euaP", "argentinaP", "egitoP", "alemanhaP", "italiaP", "portugalP",
+    //private String[] perguntas = new String[]{"francaP", "brasilP", "inglaterraP"};
+    //private String[] respostas = new String[]{"francaR", "brasilR", "inglaterraR"};
+    //private double[] lat = new double[]{48.856614, -15.794157, 51.507351};
+    //private double[] lng = new double[]{2.352222, -47.882529, -0.127758};
+    private String[] perguntas = new String[]{"francaP", "brasilP", "inglaterraP", "coreiaSulP", "euaP", "argentinaP", "egitoP", "alemanhaP", "italiaP", "portugalP",
             "russiaP", "irlandaP", "malasiaP", "chinaP", "venezuelaP", "colombiaP", "peruP", "holandaP", "greciaP", "filipinasP", "canadaP", "equadorP", "chileP", "japaoP", "austriaP",
             "ucraniaP", "tailandiaP", "taiwanP", "emiradosP", "israelP"};
 
@@ -79,7 +81,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private double[] lng = new double[]{2.352222, -47.882529, -0.127758, 126.977969, -77.036871, -58.381559, 31.235712, 13.404954, 12.496366, -9.139337, 55.755826, -6.260310,
             101.686855, 116.407395, -66.903606, -74.072092, -77.042793, 4.895168, 23.727539, 120.984219, -75.697193, -78.467838, -70.669265, 139.691706, 16.373819, 30.523400,
-            100.501765, 121.565418, 54.377344, 35.213710};*/
+            100.501765, 121.565418, 54.377344, 35.213710};
 
     private List<Integer> vInicial = new ArrayList<>();
     private int indicePergunta = 0;
@@ -90,8 +92,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int REQUEST_CAMERA = 1;
     private static final int REQUEST_GPS = 1000;
     private Context c = this;
-
-
 
 
     @Override
@@ -125,7 +125,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -139,11 +138,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 okButton.setEnabled(true);
                 respostaEditText.setEnabled(true);
                 contG++;
-                if (indicePergunta != 2) {
+                if (indicePergunta != 29) {
                     indicePergunta++;
                     gerarPergunta();
                 }
-                if (contG > 2) {
+                if (contG > 29) {
                     checkin(findViewById(R.id.map));
                     iniciarButton.setEnabled(true);
                     respostaEditText.setEnabled(false);
@@ -191,7 +190,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Toast.makeText(this, "Para exibir coordenadas o app precisa do GPS", Toast.LENGTH_SHORT).show();
             }
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_GPS);
-        } else{
+        } else {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
         }
     }
@@ -203,29 +202,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locationManager.removeUpdates(locationListener);
     }
 
-    public void checkin (View view){
-        if (mMap == null){ //somente se o mapa estiver pronto
+    public void checkin(View view) {
+        if (mMap == null) { //somente se o mapa estiver pronto
             Toast.makeText(this, "Mapa não está pronto", Toast.LENGTH_LONG).show();
-        }
-        else if (currentLocation == null){
+        } else if (currentLocation == null) {
             Toast.makeText(this, "Sem sinal GPS", Toast.LENGTH_LONG).show();
-            loc = new LatLng(-23.5631338 , -46.6543286);//vai pra Paulista
-        }
-        else{
-            loc = new LatLng(currentLocation.getLatitude() , currentLocation.getLongitude());
+            loc = new LatLng(-23.5631338, -46.6543286);//vai pra Paulista
+            moverLocalFinal(loc);
+        } else {
+            loc = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
             moverLocalFinal(loc);
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case REQUEST_GPS:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                     }
-                } break;
+                }
+                break;
         }
     }
 
@@ -279,18 +278,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final View.OnClickListener listenerIniciar = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            mMap.clear();
-            contG = 0;
-            okButton.setEnabled(true);
-            respostaEditText.setEnabled(true);
-            embaralharVetor();
-            gerarPergunta();
-            Toast.makeText(getBaseContext(), getString(R.string.iniciar), Toast.LENGTH_SHORT).show();
+            if (fotoPerfil == null) {
+                Toast.makeText(getBaseContext(), getString(R.string.toastAviso), Toast.LENGTH_LONG).show();
+            } else {
+                mMap.clear();
+                contG = 0;
+                okButton.setEnabled(true);
+                respostaEditText.setEnabled(true);
+                embaralharVetor();
+                gerarPergunta();
+                Toast.makeText(getBaseContext(), getString(R.string.iniciar), Toast.LENGTH_SHORT).show();
+            }
         }
     };
 
     private void embaralharVetor() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 30; i++) {
             vInicial.add(i);
         }
         Collections.shuffle(vInicial);
@@ -345,7 +348,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 numeroTextView.setText(String.valueOf(tentativas));
                 Toast.makeText(getBaseContext(), getString(R.string.perdeuP), Toast.LENGTH_LONG).show();
             } else {
-                if (indicePergunta != 2) {
+                if (indicePergunta != 29) {
                     indicePergunta++;
                     gerarPergunta();
                 }
